@@ -50,6 +50,12 @@ export const sleeptracker = async (mqtt: IMQTTConnection) => {
           powerBase: { antiSnorePresetSupported, headAngleTicksPerDegree, footAngleTicksPerDegree },
         } = device;
         const deviceData = buildMQTTDeviceData(device);
+        // Check for environmental sensors by looking for BME680 sensor in sensors array
+        // The productFeatures flag is unreliable - some beds have sensors without the flag
+        const hasEnvironmentSensors =
+          helloData.productFeatures.includes('env_sensors') ||
+          helloData.sensors?.some((s) => s.model === 'bme680_multi' || s.type === 'MULTI');
+
         bed = beds[processorId] = {
           processorId,
           deviceData,
@@ -59,7 +65,7 @@ export const sleeptracker = async (mqtt: IMQTTConnection) => {
           supportedFeatures: {
             smartBedControls: isSmartBed,
             antiSnorePreset: antiSnorePresetSupported,
-            environmentSensors: helloData.productFeatures.includes('env_sensors'),
+            environmentSensors: hasEnvironmentSensors,
             motors: helloData.productFeatures.includes('motors'),
           },
           data: { headAngleTicksPerDegree, footAngleTicksPerDegree },

@@ -28,6 +28,9 @@ type Sensor = {
   status: string;
   tag: string;
   unit: number;
+  type?: string; // e.g., "MULTI" for BME680 multi-sensor
+  reading?: any; // Sensor readings for multi-sensors
+  measurementUnits?: string; // e.g., "multi"
 };
 
 export type HelloData = {

@@ -12,5 +12,8 @@ logs/
 test_screenshots/
 autotest_output/
 
+.env
+.env.local
+
 yarn-error.log
 thumbs.db

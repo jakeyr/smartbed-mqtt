@@ -1,3 +1,18 @@
+## v1.1.23
+
+**Bug Fixes**
+
+- (Sleeptracker) Fix environmental sensors not appearing for beds without env_sensors flag
+  - Some beds have BME680 multi-sensors but productFeatures doesn't include 'env_sensors'
+  - Now checks for actual sensor hardware presence in addition to feature flag
+  - Fixes temperature, humidity, CO2, and VOC sensors for affected bed models (e.g., sts60)
+
+**Documentation**
+
+- Add CLAUDE.md with project architecture and debugging guidance
+- Add .env support for API debugging scripts
+- Document Sleeptracker API structure and common issues
+
 ## v1.1.22
 
 **New Features**

@@ -1,6 +1,6 @@
 {
   "name": "smartbed-mqtt",
-  "version": "1.1.22",
+  "version": "1.1.23",
   "description": "Smartbed MQTT integration",
   "author": "Richard Hopton",
   "repository": "git@github.com:richardhopton/smartbed-mqtt.git",
@@ -16,6 +16,7 @@
     "@types/ws": "^7.4.7",
     "@typescript-eslint/eslint-plugin": "^7.6.0",
     "@typescript-eslint/parser": "^7.6.0",
+    "dotenv": "^17.2.3",
     "eslint": "^9.0.0",
     "husky": "^6.0.0",
     "jest": "29",
@@ -27,6 +28,7 @@
     "ts-node": "^10.0.0",
     "tsc-alias": "^1.8.2",
     "tsconfig-paths": "^4.1.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.6.0"
   },
